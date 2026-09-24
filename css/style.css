@@ -1,0 +1,680 @@
+/* =========================================
+   DESIGN SYSTEM
+   ========================================= */
+
+:root {
+    /* Cores */
+    --cor-primaria: #2E7D32;
+    --cor-primaria-escura: #1B5E20;
+    --cor-secundaria: #FF9800;
+    --cor-secundaria-clara: #FFB74D;
+    --cor-fundo: #F5F7F5;
+    --cor-superficie: #FFFFFF;
+    --cor-texto: #212121;
+    --cor-texto-secundario: #555555;
+
+        /* Feedbacks */
+    --cor-info-fundo: #E3F2FD;
+    --cor-info-borda: #1976D2;
+    --cor-info-texto: #0D47A1;
+
+    --cor-sucesso-fundo: #E8F5E9;
+    --cor-sucesso-borda: #2E7D32;
+    --cor-sucesso-texto: #1B5E20;
+
+    --cor-erro-fundo: #FFEBEE;
+    --cor-erro-borda: #C62828;
+    --cor-erro-texto: #B71C1C;
+
+    /* Tipografia */
+    --fonte-xs: 0.75rem;
+    --fonte-sm: 0.875rem;
+    --fonte-md: 1rem;
+    --fonte-lg: 1.5rem;
+    --fonte-xl: 2rem;
+
+    /* Espaçamentos */
+    --espaco-1: 0.25rem;
+    --espaco-2: 0.5rem;
+    --espaco-3: 0.75rem;
+    --espaco-4: 1rem;
+    --espaco-5: 1.5rem;
+    --espaco-6: 2rem;
+    --espaco-7: 3rem;
+
+    /* Outros */
+    --raio: 0.5rem;
+    --sombra: 0 2px 8px rgba(0, 0, 0, 0.10);
+}
+
+
+/* =========================================
+   RESET E CONFIGURAÇÕES GERAIS
+   ========================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    font-size: var(--fonte-md);
+    line-height: 1.6;
+    color: var(--cor-texto);
+    background-color: var(--cor-fundo);
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+a {
+    color: var(--cor-primaria-escura);
+}
+
+a:hover {
+    color: var(--cor-primaria);
+}
+
+a:focus {
+    outline: 3px solid var(--cor-secundaria);
+    outline-offset: 3px;
+}
+
+button,
+input,
+select,
+textarea {
+    font: inherit;
+}
+
+
+/* =========================================
+   TIPOGRAFIA
+   ========================================= */
+
+h1,
+h2,
+h3 {
+    line-height: 1.2;
+}
+
+h1 {
+    font-size: var(--fonte-xl);
+}
+
+h2 {
+    font-size: var(--fonte-lg);
+}
+
+h3 {
+    font-size: 1.25rem;
+}
+
+p {
+    color: var(--cor-texto-secundario);
+}
+
+
+/* =========================================
+   CABEÇALHO
+   ========================================= */
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: var(--espaco-4);
+
+    padding: var(--espaco-4) 5%;
+
+    background-color: var(--cor-primaria);
+    color: var(--cor-superficie);
+}
+
+header img {
+    width: 80px;
+}
+
+header h1 {
+    margin: 0;
+    color: var(--cor-superficie);
+}
+
+
+/* =========================================
+   NAVEGAÇÃO
+   ========================================= */
+
+nav ul {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: var(--espaco-5);
+
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
+}
+
+nav a {
+    color: var(--cor-superficie);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: var(--cor-secundaria-clara);
+}
+
+nav a:focus {
+    outline: 3px solid var(--cor-superficie);
+    outline-offset: 4px;
+}
+
+/* Menu hambúrguer */
+
+#menu-toggle {
+    display: none;
+}
+
+.menu {
+    display: flex;
+}
+
+@media (max-width: 767px) {
+
+    #menu-toggle {
+        display: block;
+    }
+
+    .menu {
+        display: none;
+        flex-direction: column;
+        gap: var(--espaco-3);
+    }
+
+    .menu.aberto {
+        display: flex;
+    }
+
+    #menu-toggle:focus {
+        outline: 3px solid var(--cor-secundaria);
+        outline-offset: 3px;
+    }
+}
+
+/* =========================================
+   ESTRUTURA PRINCIPAL
+   ========================================= */
+
+main {
+    width: min(90%, 1200px);
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: var(--espaco-6);
+
+    padding: var(--espaco-7) 0;
+}
+
+main > section,
+main > form {
+    grid-column: 1 / -1;
+}
+
+
+/* =========================================
+   SEÇÕES
+   ========================================= */
+
+main > section {
+    padding: var(--espaco-6);
+
+    background-color: var(--cor-superficie);
+    border-radius: var(--raio);
+    box-shadow: var(--sombra);
+}
+
+section h2 {
+    margin-top: 0;
+    color: var(--cor-primaria-escura);
+}
+
+section img {
+    margin-top: var(--espaco-5);
+    border-radius: var(--raio);
+}
+
+
+/* =========================================
+   PROJETOS
+   ========================================= */
+
+article {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: var(--espaco-3);
+
+    margin-top: var(--espaco-5);
+    padding: var(--espaco-5);
+
+    background-color: var(--cor-fundo);
+    border-left: 5px solid var(--cor-primaria);
+    border-radius: var(--raio);
+}
+
+article h3 {
+    margin-top: 0;
+    color: var(--cor-primaria-escura);
+}
+
+article p {
+    margin: 0;
+}
+
+
+/* =========================================
+   FORMULÁRIO
+   ========================================= */
+
+form {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: var(--espaco-5);
+}
+
+fieldset {
+    grid-column: span 12;
+
+    margin: 0;
+    padding: var(--espaco-5);
+
+    border: 2px solid #D5DAD5;
+    border-radius: var(--raio);
+    background-color: var(--cor-superficie);
+}
+
+legend {
+    padding: 0 var(--espaco-2);
+
+    font-size: var(--fonte-lg);
+    font-weight: bold;
+    color: var(--cor-primaria-escura);
+}
+
+fieldset p {
+    display: flex;
+    flex-direction: column;
+    gap: var(--espaco-2);
+
+    margin: var(--espaco-4) 0;
+}
+
+label {
+    font-weight: bold;
+    color: var(--cor-texto);
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    padding: var(--espaco-3);
+
+    border: 2px solid #BDBDBD;
+    border-radius: var(--raio);
+
+    background-color: var(--cor-superficie);
+    color: var(--cor-texto);
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: 3px solid var(--cor-secundaria-clara);
+    outline-offset: 2px;
+    border-color: var(--cor-primaria);
+}
+
+textarea {
+    resize: vertical;
+}
+
+
+/* =========================================
+   RADIO E CHECKBOX
+   ========================================= */
+
+input[type="radio"],
+input[type="checkbox"] {
+    width: auto;
+    margin-right: var(--espaco-2);
+}
+
+input[type="radio"] + label,
+input[type="checkbox"] + label {
+    display: inline;
+    font-weight: normal;
+}
+
+
+/* =========================================
+   BOTÕES
+   ========================================= */
+
+button {
+    padding: var(--espaco-3) var(--espaco-5);
+
+    border: 2px solid var(--cor-primaria-escura);
+    border-radius: var(--raio);
+
+    background-color: var(--cor-primaria);
+    color: var(--cor-superficie);
+
+    font-weight: bold;
+    cursor: pointer;
+
+    transition:
+        background-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+button:hover {
+    background-color: var(--cor-primaria-escura);
+    transform: translateY(-2px);
+}
+
+button:focus {
+    outline: 3px solid var(--cor-secundaria);
+    outline-offset: 3px;
+}
+
+button[type="reset"] {
+    background-color: var(--cor-texto-secundario);
+    border-color: var(--cor-texto-secundario);
+}
+
+button[type="reset"]:hover {
+    background-color: var(--cor-texto);
+}
+
+
+/* =========================================
+   LINKS DE AÇÃO
+   ========================================= */
+
+main a {
+    font-weight: bold;
+}
+
+main a:hover {
+    text-decoration-thickness: 2px;
+}
+
+
+/* =========================================
+   RODAPÉ
+   ========================================= */
+
+footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    min-height: 100px;
+    padding: var(--espaco-5);
+
+    background-color: var(--cor-primaria-escura);
+    color: var(--cor-superficie);
+
+    text-align: center;
+}
+
+footer p {
+    margin: 0;
+    color: var(--cor-superficie);
+}
+
+
+/* =========================================
+   BREAKPOINT 1 — ATÉ 480px
+   ========================================= */
+
+@media (max-width: 480px) {
+
+    header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: var(--espaco-3);
+    }
+
+    main {
+        width: 94%;
+        grid-template-columns: 1fr;
+        gap: var(--espaco-4);
+        padding: var(--espaco-5) 0;
+    }
+
+    main > section,
+    main > form {
+        grid-column: 1;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    h2 {
+        font-size: 1.25rem;
+    }
+
+    main > section {
+        padding: var(--espaco-4);
+    }
+
+    fieldset {
+        padding: var(--espaco-4);
+    }
+}
+
+
+/* =========================================
+   BREAKPOINT 2 — 481px ATÉ 767px
+   ========================================= */
+
+@media (min-width: 481px) and (max-width: 767px) {
+
+    header {
+        justify-content: center;
+        text-align: center;
+    }
+
+    nav ul {
+        gap: var(--espaco-4);
+    }
+
+    main {
+        width: 92%;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    main > section,
+    main > form {
+        grid-column: 1 / -1;
+    }
+
+    article {
+        padding: var(--espaco-4);
+    }
+}
+
+
+/* =========================================
+   BREAKPOINT 3 — 768px ATÉ 1023px
+   ========================================= */
+
+@media (min-width: 768px) and (max-width: 1023px) {
+
+    main {
+        width: 90%;
+        grid-template-columns: repeat(6, 1fr);
+    }
+
+    main > section,
+    main > form {
+        grid-column: 1 / -1;
+    }
+
+    header {
+        padding-left: 4%;
+        padding-right: 4%;
+    }
+}
+
+
+/* =========================================
+   BREAKPOINT 4 — 1024px ATÉ 1439px
+   ========================================= */
+
+@media (min-width: 1024px) and (max-width: 1439px) {
+
+    main {
+        width: 90%;
+        max-width: 1200px;
+        grid-template-columns: repeat(12, 1fr);
+    }
+
+    main > section {
+        grid-column: span 12;
+    }
+
+    article {
+        min-height: 200px;
+    }
+}
+
+
+/* =========================================
+   BREAKPOINT 5 — 1440px OU MAIS
+   ========================================= */
+
+@media (min-width: 1440px) {
+
+    main {
+        width: 90%;
+        max-width: 1200px;
+        grid-template-columns: repeat(12, 1fr);
+    }
+
+    main > section {
+        grid-column: span 12;
+    }
+
+    header {
+        padding-left: calc((100% - 1200px) / 2);
+        padding-right: calc((100% - 1200px) / 2);
+    }
+}
+
+/* =========================================
+   BADGES
+   ========================================= */
+
+.badge {
+    display: inline-block;
+    width: fit-content;
+
+    padding: var(--espaco-1) var(--espaco-3);
+
+    background-color: var(--cor-secundaria);
+    color: var(--cor-texto);
+
+    border-radius: 999px;
+
+    font-size: var(--fonte-sm);
+    font-weight: bold;
+}
+
+/* =========================================
+   ALERTAS
+   ========================================= */
+
+   .alerta {
+    grid-column: 1 / -1;
+
+    padding: var(--espaco-4);
+    margin-bottom: var(--espaco-5);
+
+    border: 2px solid;
+    border-radius: var(--raio);
+
+    font-weight: bold;
+}
+
+.alerta-info {
+    background-color: var(--cor-info-fundo);
+    border-color: var(--cor-info-borda);
+    color: var(--cor-info-texto);
+}
+
+.alerta-sucesso {
+    display: none;
+
+    background-color: var(--cor-sucesso-fundo);
+    border: 2px solid var(--cor-sucesso-borda);
+    color: var(--cor-sucesso-texto);
+}
+
+.alerta-sucesso.mostrar {
+    display: block !important;
+}
+
+.alerta-erro {
+    display: none;
+
+    background-color: var(--cor-erro-fundo);
+    border-color: var(--cor-erro-borda);
+    color: var(--cor-erro-texto);
+}
+
+/* =========================================
+   VALIDAÇÃO DO FORMULÁRIO
+   ========================================= */
+
+input:valid,
+select:valid,
+textarea:valid {
+    border-color: var(--cor-primaria);
+}
+
+input:invalid:not(:placeholder-shown),
+select:invalid,
+textarea:invalid:not(:placeholder-shown) {
+    border-color: #C62828;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: 3px solid var(--cor-secundaria-clara);
+    outline-offset: 2px;
+}
+
